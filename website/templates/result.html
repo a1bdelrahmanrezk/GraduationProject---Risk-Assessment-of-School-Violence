@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="../static/assets/css/layout.css" />
+    <title>Result Dashboard</title>
+</head>
+<body>
+    
+    <!-- Start Parent Dashboard -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">School<br/><span class="primary">&</span>Violence
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-grow-0" id="navbar">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/main">
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/result">Result</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+      <div class="dash-result container">
+        <div class="rest">
+            <div class="rest-title">
+              <h3>Results of your children</h3>
+              <p>
+                We can show you some tips that U can follow with your child/ren to avoid high/low risk
+              </p>
+            </div>
+            <div class="cards">
+              <!-- first loop -->
+              {% for result in results %}
+              <div class="one-card">
+                <span class="num">
+                    <span>{{ loop.index }}</span>
+                </span>
+                <div class="name">
+                    <span class="title text-lowercase">{{ result['f_name'] }} {{ result['l_name'] }}</span>
+                    <span class="desc">Result: {{ result['result'] }}</span>
+                </div>
+              </div>
+              <!-- end loop -->
+              {% endfor %}
+              <!-- <div class="one-card">
+                <span class="num">
+                    <span>04</span>
+                </span>
+                <div class="name">
+                    <span class="title">Membership</span>
+                    <span class="desc">members contribue and borrow loans against those contribution. Each month they return borrowed money plus</span>
+                </div>
+              </div> -->
+            </div>
+      </div>
+        <!-- modal -->
+          <div class="btn-contain">
+            <button type="button" class="btn btn-primary btn-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              See more tips
+            </button>
+          </div>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Tips & Advices for an parent </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h4>Tips:</h4>
+                  <ol class="ol-flex">
+                    <li>give them space - once they have calmed down, you may want to talk to them about what has happened and suggest that they let you find them some help</li>
+                    <li>talk to their school - find out if their aggressive behaviour is happening there as well. Some schools offer counselling</li>
+                    <li>avoid using violence towards your teen - this sets a positive example that violence is not OK</li>
+                    <li>arrange counselling - if your teen admits they have a problem and is willing to get help, book an appointment with a counsellor or psychologist as soon as possible.</li>
+                    <li>Set clear boundaries: It's important to set clear boundaries and consequences for violent behavior. Let your teen know that this behavior is not acceptable and that there will be consequences if it continues.</li>
+                    <li>Be a positive role model: Model positive behavior and effective communication skills. Your teen is learning from your example, so it's important to model healthy ways to express emotions and resolve conflicts.</li>
+                    <li>Encourage healthy outlets: Encourage your teen to participate in activities that promote physical exercise and stress relief, such as sports, dance, or yoga. These activities can help your teen manage their emotions in a healthy way.</li>
+                    <li>Monitor media consumption: Be aware of what your teen is watching and playing, and limit their exposure to violent media.</li>
+                    <li>Stay involved: Stay involved in your teen's life and stay connected to their school and social network. This can help you identify any issues early on and provide support when needed.</li>
+                    <li>Try not to take it personally - If your child is struggling, it’s often because of a range of issues that may have been beyond your control. Once you are aware of them, you can give the support and help to address their fears and worries.</li>
+                  </ol>
+                  <div class="divider"></div>
+                  <h4>Some advices:</h4>
+                  <ol class="ol-flex">
+                    <li>Try not to take it personally - If your child is struggling, it’s often because of a range of issues that may have been beyond your control. Once you are aware of them, you can give the support and help to address their fears and worries.
+                    </li>
+                    <li>Separate the behaviour from your teen – You can still love your teen but not like their behaviour. It is not a package and it is important to try to view the behaviour as a stand-alone issue. 
+                    </li>
+                    <li>Use language that separates the behaviour from your teen, Avoid using language that blames and is negative. Think about what you are saying and how you are saying it, such as the tone, etc. 
+                    </li>
+                    <li>Ignoring the behaviour won’t make it go away – It is really hard to go through this, but playing it down won’t help it go away. If it is not addressed, the violence could increase and become a life-long pattern; help them break the pattern. 
+                    </li>
+                    <li>Try to find the root of the anger - School pressures, bullying, friendships, mental health, family breakdown, illness can all be trigger factors that add to a child’s stress levels. They are not excuses but may be reasons for it. Talking through the pressures, listening to your teen attentively, without judging, interrupting or directing them can help them to offload their feelings and release the pressure constructively. 
+                    </li>
+                    <li>Help them develop self-strategies – Helping your teen to understand the triggers and what to do when they are angry is crucial to help them overcome this. When things are calm, have a chat and find out what they think would work for them. It may be a case of trial and error but it is good to help them manage their emotions and find a different outlet for their angry feelings. They might want to use calming down strategies for their anger or an alternative option is meditation to help them quieten down their mind. Let them know that you are there for them. 
+                    </li>
+                    <li>
+                      Give them space - Recognise that your teen is taking anger out on you and may not know how else to deal with difficult feelings. Once they have calmed down, you may be able to talk to them about what has happened and suggest they let you find them some help.
+                    </li>
+                    <li>
+                      Avoid using violence with your teen. If you are hitting your teenager in response, then you are giving them the message that it is OK to use violence to solve disagreements. By avoiding using violence, you are setting a positive example of what you find acceptable.
+                    </li>
+                  </ol>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- modal -->
+              <!-- Footer -->
+              <div class="container">
+                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                  <p class="col-md-4 mb-0 text-muted">© 2023 School, Inc</p>
+              
+                  <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">School<br/>
+                    <span class="primary">&</span>Violence
+                  </a>
+              
+                  <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="/main" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="/result" class="nav-link px-2 text-muted">Result</a></li>
+                    <li class="nav-item"><a href="/profile" class="nav-link px-2 text-muted">Profile</a></li>
+                  </ul>
+                </footer>
+              </div>
+              <!-- Footer -->
+      </div>
+
+
+
+
+
+</body>
+<script src="../static/assets/js/main.js"></script>
+<script src="../static/assets/js/bootstrap.bundle.min.js"></script>
+</html>
